@@ -83,12 +83,29 @@ class ScanPlanTests(unittest.TestCase):
             p = subprocess.run([sys.executable,"-m","scanplan","plan",str(ROOT/"examples"/"demo.json"),"--output",str(out)],capture_output=True,env=env)
             self.assertEqual(p.returncode, 1)
             self.assertEqual(out.read_text(), "CANARY")
+    def test_cli_rejects_directory_input(self):
+        with tempfile.TemporaryDirectory() as td:
+            env = dict(__import__("os").environ, PYTHONPATH=str(ROOT))
+            p = subprocess.run([sys.executable, "-m", "scanplan", "plan", td],
+                               capture_output=True, env=env)
+            self.assertEqual(p.returncode, 1)
+            self.assertIn(b"regular file", p.stderr)
+
     def test_cli_rejects_symlink_input(self):
         with tempfile.TemporaryDirectory() as td:
-            inp = Path(td) / "link.json"; inp.symlink_to(ROOT / "examples" / "demo.json")
+            inp = Path(td) / "link.json"
+            try:
+                inp.symlink_to(ROOT / "examples" / "demo.json")
+            except OSError as exc:
+                # Windows symlinks may require Developer Mode or a specific privilege.
+                # Skip only that OS-enforced precondition; do not weaken the actual check.
+                if getattr(exc, "winerror", None) == 1314:
+                    self.skipTest("Windows symlink privilege unavailable (WinError 1314)")
+                raise
             env = dict(__import__("os").environ, PYTHONPATH=str(ROOT))
-            p = subprocess.run([sys.executable,"-m","scanplan","plan",str(inp)],capture_output=True,env=env)
-            self.assertEqual(p.returncode, 1)
+            p = subprocess.run([sys.executable, "-m", "scanplan", "plan", str(inp)],
+                               capture_output=True, env=env)
+            self.assertEqual(p.returncode, 1, p.stderr.decode(errors="replace"))
     def test_no_network_or_exec_implementation(self):
         import scanplan.core as module
         s = Path(module.__file__).read_text()
