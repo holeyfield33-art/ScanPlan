@@ -19,6 +19,10 @@
 - Studio's historical red/green trial is preserved in [origin evidence](evidence/STUDIO-ORIGIN-20261101/README.md), not copied into current execution claims.
 - A fresh independent Windows test, successful hosted CI and release/security approval have **not** been demonstrated.
 
+## Maintenance process (documented; not executed)
+
+The [project SDLC](SDLC.md#repository-maintenance-and-security-testing-coverage) now defines source/diff checks for each PR, Windows/Linux release verification, dependency/advisory response, and a **proposed quarterly** offline repository health review (operator approval required). This documentation update is **not** an executed health check or a new Windows/hosted-CI result; all verification limitations above remain in force.
+
 ## Next bounded actions
 
 1. On Windows, run `py -m unittest discover -s tests -v` from current `main`, and preserve exact results. The symlink test may skip only on `WinError 1314`; do not claim it passed when skipped.
