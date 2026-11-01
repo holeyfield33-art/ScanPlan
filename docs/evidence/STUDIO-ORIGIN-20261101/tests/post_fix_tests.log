@@ -1,0 +1,28 @@
+test_all_kinds_have_positive_negative_and_oracle (test_scanplan.ScanPlanTests.test_all_kinds_have_positive_negative_and_oracle) ... ok
+test_cli_does_not_touch_existing_file (test_scanplan.ScanPlanTests.test_cli_does_not_touch_existing_file) ... ok
+test_cli_rejects_symlink_input (test_scanplan.ScanPlanTests.test_cli_rejects_symlink_input) ... ok
+test_cli_stdout_and_new_file (test_scanplan.ScanPlanTests.test_cli_stdout_and_new_file) ... ok
+test_deterministic_output (test_scanplan.ScanPlanTests.test_deterministic_output) ... ok
+test_duplicate_id_rejected (test_scanplan.ScanPlanTests.test_duplicate_id_rejected) ... ok
+test_duplicate_json_key_rejected (test_scanplan.ScanPlanTests.test_duplicate_json_key_rejected) ... ok
+test_empty_list_rejected (test_scanplan.ScanPlanTests.test_empty_list_rejected) ... ok
+test_excessive_size_rejected (test_scanplan.ScanPlanTests.test_excessive_size_rejected) ... ok
+test_extra_authority_field_rejected (test_scanplan.ScanPlanTests.test_extra_authority_field_rejected) ... ok
+test_malformed_kind_type_rejected (test_scanplan.ScanPlanTests.test_malformed_kind_type_rejected) ... ok
+test_missing_claim_rejected (test_scanplan.ScanPlanTests.test_missing_claim_rejected) ... ok
+test_never_claims_execution_or_authorization (test_scanplan.ScanPlanTests.test_never_claims_execution_or_authorization) ... ok
+test_no_network_or_exec_implementation (test_scanplan.ScanPlanTests.test_no_network_or_exec_implementation) ... ok
+test_nonfinite_json_rejected (test_scanplan.ScanPlanTests.test_nonfinite_json_rejected) ... ok
+test_scope_fixture_false_rejected (test_scanplan.ScanPlanTests.test_scope_fixture_false_rejected) ... ok
+test_scope_network_true_rejected (test_scanplan.ScanPlanTests.test_scope_network_true_rejected) ... ok
+test_threat_order_normalized (test_scanplan.ScanPlanTests.test_threat_order_normalized) ... ok
+test_unknown_kind_rejected (test_scanplan.ScanPlanTests.test_unknown_kind_rejected) ... ok
+test_all_free_text_reject_surrogate_without_crashing (test_unicode_boundary.UnicodeBoundaryTests.test_all_free_text_reject_surrogate_without_crashing) ... ok
+test_cli_invalid_unicode_returns_error_without_output (test_unicode_boundary.UnicodeBoundaryTests.test_cli_invalid_unicode_returns_error_without_output) ... ok
+test_invalid_utf8_is_already_rejected (test_unicode_boundary.UnicodeBoundaryTests.test_invalid_utf8_is_already_rejected) ... ok
+test_valid_unicode_is_deterministic (test_unicode_boundary.UnicodeBoundaryTests.test_valid_unicode_is_deterministic) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 4.440s
+
+OK

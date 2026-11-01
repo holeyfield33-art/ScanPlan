@@ -1,0 +1,101 @@
+test_all_kinds_have_positive_negative_and_oracle (test_scanplan.ScanPlanTests.test_all_kinds_have_positive_negative_and_oracle) ... ok
+test_cli_does_not_touch_existing_file (test_scanplan.ScanPlanTests.test_cli_does_not_touch_existing_file) ... ok
+test_cli_rejects_symlink_input (test_scanplan.ScanPlanTests.test_cli_rejects_symlink_input) ... ok
+test_cli_stdout_and_new_file (test_scanplan.ScanPlanTests.test_cli_stdout_and_new_file) ... ok
+test_deterministic_output (test_scanplan.ScanPlanTests.test_deterministic_output) ... ok
+test_duplicate_id_rejected (test_scanplan.ScanPlanTests.test_duplicate_id_rejected) ... ok
+test_duplicate_json_key_rejected (test_scanplan.ScanPlanTests.test_duplicate_json_key_rejected) ... ok
+test_empty_list_rejected (test_scanplan.ScanPlanTests.test_empty_list_rejected) ... ok
+test_excessive_size_rejected (test_scanplan.ScanPlanTests.test_excessive_size_rejected) ... ok
+test_extra_authority_field_rejected (test_scanplan.ScanPlanTests.test_extra_authority_field_rejected) ... ok
+test_malformed_kind_type_rejected (test_scanplan.ScanPlanTests.test_malformed_kind_type_rejected) ... ok
+test_missing_claim_rejected (test_scanplan.ScanPlanTests.test_missing_claim_rejected) ... ok
+test_never_claims_execution_or_authorization (test_scanplan.ScanPlanTests.test_never_claims_execution_or_authorization) ... ok
+test_no_network_or_exec_implementation (test_scanplan.ScanPlanTests.test_no_network_or_exec_implementation) ... ok
+test_nonfinite_json_rejected (test_scanplan.ScanPlanTests.test_nonfinite_json_rejected) ... ok
+test_scope_fixture_false_rejected (test_scanplan.ScanPlanTests.test_scope_fixture_false_rejected) ... ok
+test_scope_network_true_rejected (test_scanplan.ScanPlanTests.test_scope_network_true_rejected) ... ok
+test_threat_order_normalized (test_scanplan.ScanPlanTests.test_threat_order_normalized) ... ok
+test_unknown_kind_rejected (test_scanplan.ScanPlanTests.test_unknown_kind_rejected) ... ok
+test_all_free_text_reject_surrogate_without_crashing (test_unicode_boundary.UnicodeBoundaryTests.test_all_free_text_reject_surrogate_without_crashing) ... 
+  test_all_free_text_reject_surrogate_without_crashing (test_unicode_boundary.UnicodeBoundaryTests.test_all_free_text_reject_surrogate_without_crashing) (field='subject') ... ERROR
+  test_all_free_text_reject_surrogate_without_crashing (test_unicode_boundary.UnicodeBoundaryTests.test_all_free_text_reject_surrogate_without_crashing) (field='review_owner') ... ERROR
+  test_all_free_text_reject_surrogate_without_crashing (test_unicode_boundary.UnicodeBoundaryTests.test_all_free_text_reject_surrogate_without_crashing) (field='component') ... ERROR
+  test_all_free_text_reject_surrogate_without_crashing (test_unicode_boundary.UnicodeBoundaryTests.test_all_free_text_reject_surrogate_without_crashing) (field='observation') ... ERROR
+test_cli_invalid_unicode_returns_error_without_output (test_unicode_boundary.UnicodeBoundaryTests.test_cli_invalid_unicode_returns_error_without_output) ... FAIL
+test_invalid_utf8_is_already_rejected (test_unicode_boundary.UnicodeBoundaryTests.test_invalid_utf8_is_already_rejected) ... ok
+test_valid_unicode_is_deterministic (test_unicode_boundary.UnicodeBoundaryTests.test_valid_unicode_is_deterministic) ... ok
+
+======================================================================
+ERROR: test_all_free_text_reject_surrogate_without_crashing (test_unicode_boundary.UnicodeBoundaryTests.test_all_free_text_reject_surrogate_without_crashing) (field='subject')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/studio_experiment_002/scanplan/tests/test_unicode_boundary.py", line 27, in test_all_free_text_reject_surrogate_without_crashing
+    canonical(build_plan(parse_input(raw)))
+              ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/studio_experiment_002/scanplan/scanplan/core.py", line 141, in build_plan
+    "input_sha256": hashlib.sha256(canonical(data)).hexdigest(),
+                                   ~~~~~~~~~^^^^^^
+  File "/mnt/data/studio_experiment_002/scanplan/scanplan/core.py", line 112, in canonical
+    allow_nan=False) + "\n").encode("utf-8")
+                             ~~~~~~^^^^^^^^^
+UnicodeEncodeError: 'utf-8' codec can't encode character '\ud800' in position 138: surrogates not allowed
+
+======================================================================
+ERROR: test_all_free_text_reject_surrogate_without_crashing (test_unicode_boundary.UnicodeBoundaryTests.test_all_free_text_reject_surrogate_without_crashing) (field='review_owner')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/studio_experiment_002/scanplan/tests/test_unicode_boundary.py", line 27, in test_all_free_text_reject_surrogate_without_crashing
+    canonical(build_plan(parse_input(raw)))
+              ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/studio_experiment_002/scanplan/scanplan/core.py", line 141, in build_plan
+    "input_sha256": hashlib.sha256(canonical(data)).hexdigest(),
+                                   ~~~~~~~~~^^^^^^
+  File "/mnt/data/studio_experiment_002/scanplan/scanplan/core.py", line 112, in canonical
+    allow_nan=False) + "\n").encode("utf-8")
+                             ~~~~~~^^^^^^^^^
+UnicodeEncodeError: 'utf-8' codec can't encode character '\ud800' in position 104: surrogates not allowed
+
+======================================================================
+ERROR: test_all_free_text_reject_surrogate_without_crashing (test_unicode_boundary.UnicodeBoundaryTests.test_all_free_text_reject_surrogate_without_crashing) (field='component')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/studio_experiment_002/scanplan/tests/test_unicode_boundary.py", line 27, in test_all_free_text_reject_surrogate_without_crashing
+    canonical(build_plan(parse_input(raw)))
+              ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/studio_experiment_002/scanplan/scanplan/core.py", line 141, in build_plan
+    "input_sha256": hashlib.sha256(canonical(data)).hexdigest(),
+                                   ~~~~~~~~~^^^^^^
+  File "/mnt/data/studio_experiment_002/scanplan/scanplan/core.py", line 112, in canonical
+    allow_nan=False) + "\n").encode("utf-8")
+                             ~~~~~~^^^^^^^^^
+UnicodeEncodeError: 'utf-8' codec can't encode character '\ud800' in position 198: surrogates not allowed
+
+======================================================================
+ERROR: test_all_free_text_reject_surrogate_without_crashing (test_unicode_boundary.UnicodeBoundaryTests.test_all_free_text_reject_surrogate_without_crashing) (field='observation')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/studio_experiment_002/scanplan/tests/test_unicode_boundary.py", line 27, in test_all_free_text_reject_surrogate_without_crashing
+    canonical(build_plan(parse_input(raw)))
+              ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/studio_experiment_002/scanplan/scanplan/core.py", line 141, in build_plan
+    "input_sha256": hashlib.sha256(canonical(data)).hexdigest(),
+                                   ~~~~~~~~~^^^^^^
+  File "/mnt/data/studio_experiment_002/scanplan/scanplan/core.py", line 112, in canonical
+    allow_nan=False) + "\n").encode("utf-8")
+                             ~~~~~~^^^^^^^^^
+UnicodeEncodeError: 'utf-8' codec can't encode character '\ud800' in position 269: surrogates not allowed
+
+======================================================================
+FAIL: test_cli_invalid_unicode_returns_error_without_output (test_unicode_boundary.UnicodeBoundaryTests.test_cli_invalid_unicode_returns_error_without_output)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/studio_experiment_002/scanplan/tests/test_unicode_boundary.py", line 41, in test_cli_invalid_unicode_returns_error_without_output
+    self.assertIn('scanplan:', p.stderr)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'scanplan:' not found in 'Traceback (most recent call last):\n  File "<frozen runpy>", line 198, in _run_module_as_main\n  File "<frozen runpy>", line 88, in _run_code\n  File "/mnt/data/studio_experiment_002/scanplan/scanplan/__main__.py", line 48, in <module>\n    raise SystemExit(main())\n                     ~~~~^^\n  File "/mnt/data/studio_experiment_002/scanplan/scanplan/__main__.py", line 25, in main\n    result = build_plan(parse_input(raw))\n  File "/mnt/data/studio_experiment_002/scanplan/scanplan/core.py", line 141, in build_plan\n    "input_sha256": hashlib.sha256(canonical(data)).hexdigest(),\n                                   ~~~~~~~~~^^^^^^\n  File "/mnt/data/studio_experiment_002/scanplan/scanplan/core.py", line 112, in canonical\n    allow_nan=False) + "\\n").encode("utf-8")\n                             ~~~~~~^^^^^^^^^\nUnicodeEncodeError: \'utf-8\' codec can\'t encode character \'\\udc00\' in position 263: surrogates not allowed\n'
+
+----------------------------------------------------------------------
+Ran 23 tests in 4.161s
+
+FAILED (failures=1, errors=4)
