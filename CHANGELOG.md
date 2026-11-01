@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased — Windows test portability (test/CI only)
+
+- Preserve the symlink-input negative test; skip it only when Windows refuses to create a symlink with WinError 1314.
+- Add an ordinary-directory input rejection test that runs without symlink privileges.
+- Restore the standalone CI workflow (Ubuntu/Windows; Python 3.11/3.14) missing from the first remote push.
+- Linux/Python 3.13.5 local verification: 24/24 PASS. Windows post-change and hosted CI remain NOT_RUN.
+- No runtime scanning feature, input contract or release-status change.
+
 ## v0.1.1 — 2026-11-01 (standalone seed)
 
 - Separated Agent B ScanPlan into an independent project repository seed from the Studio greenfield experiment.
